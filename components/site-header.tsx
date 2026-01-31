@@ -27,9 +27,9 @@ const characterLinks = [
 ]
 
 const supporterLinks = [
-  { key: "becomeSupporter", href: "/supporters/become" },
-  { key: "partners", href: "/supporters/partners" },
-  { key: "restaurantPartner", href: "/supporters/restaurant" },
+  { key: "nav_become_supporter", href: "/supporters/become" },
+  { key: "nav_partners", href: "/supporters/partners" },
+  { key: "nav_restaurant", href: "/supporters/restaurant" },
 ]
 
 export function SiteHeader() {
@@ -44,13 +44,13 @@ export function SiteHeader() {
   const cartCount = totalItems; // Declare cartCount variable
 
   const navItems = [
-    { key: "home", href: "/" },
-    { key: "about", href: "/about" },
-    { key: "founder", href: "/founder" },
-    { key: "news", href: "/news" },
-    { key: "characters", href: "/characters", hasDropdown: true, dropdownItems: characterLinks },
-    { key: "shop", href: "/shop" },
-    { key: "supporters", href: "/supporters", hasDropdown: true, dropdownKey: "supporters" },
+    { key: "nav_home", href: "/" },
+    { key: "nav_about", href: "/about" },
+    { key: "nav_founder", href: "/founder" },
+    { key: "nav_news", href: "/news" },
+    { key: "nav_characters", href: "/characters", hasDropdown: true, dropdownItems: characterLinks },
+    { key: "nav_shop", href: "/shop" },
+    { key: "nav_supporters", href: "/supporters", hasDropdown: true, dropdownKey: "supporters" },
   ]
 
   return (
@@ -111,7 +111,7 @@ export function SiteHeader() {
                   className="text-xs tracking-widest font-mono"
                   style={{ color: currentTheme.colors.textSecondary }}
                 >
-                  {t("theChosenOnes")}
+                  {t("universe_subtitle")}
                 </p>
               </div>
             </Link>
@@ -171,7 +171,7 @@ export function SiteHeader() {
                           borderColor: `${currentTheme.colors.accentPrimary}20`
                         }}
                       >
-                        {t("allCharacters")}
+                        {t("nav_all_characters")}
                       </Link>
                       {characterLinks.map((char) => (
                         <Link
@@ -238,7 +238,7 @@ export function SiteHeader() {
                     >
                       <input
                         type="text"
-                        placeholder={t("searchPlaceholder")}
+                        placeholder={t("search_placeholder")}
                         className="w-full px-4 py-2 rounded-lg text-sm outline-none"
                         style={{ 
                           backgroundColor: currentTheme.colors.backgroundSecondary,

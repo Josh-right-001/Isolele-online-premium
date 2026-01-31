@@ -172,6 +172,9 @@ export interface TranslationKeys {
   back: string
   next: string
   previous: string
+  site_map: string
+  accessibility: string
+  cookie_settings: string
 }
 
 export const translations: Record<Language, TranslationKeys> = {
@@ -323,6 +326,9 @@ export const translations: Record<Language, TranslationKeys> = {
     back: "Back",
     next: "Next",
     previous: "Previous",
+    site_map: "Site Map",
+    accessibility: "Accessibility",
+    cookie_settings: "Cookie Settings",
   },
   
   fr: {
@@ -473,6 +479,9 @@ export const translations: Record<Language, TranslationKeys> = {
     back: "Retour",
     next: "Suivant",
     previous: "Precedent",
+    site_map: "Plan du site",
+    accessibility: "Accessibilite",
+    cookie_settings: "Parametres des cookies",
   },
   
   pt: {
@@ -598,6 +607,9 @@ export const translations: Record<Language, TranslationKeys> = {
     back: "Voltar",
     next: "Proximo",
     previous: "Anterior",
+    site_map: "Mapa do site",
+    accessibility: "Acessibilidade",
+    cookie_settings: "Configuracoes de cookies",
   },
   
   es: {
@@ -723,6 +735,9 @@ export const translations: Record<Language, TranslationKeys> = {
     back: "Atras",
     next: "Siguiente",
     previous: "Anterior",
+    site_map: "Mapa del sitio",
+    accessibility: "Accesibilidad",
+    cookie_settings: "Configuracion de cookies",
   },
   
   zu: {
@@ -848,6 +863,9 @@ export const translations: Record<Language, TranslationKeys> = {
     back: "Emuva",
     next: "Okulandelayo",
     previous: "Okwangaphambili",
+    site_map: "Ibalazwe Lesayithi",
+    accessibility: "Ukufinyelela",
+    cookie_settings: "Izilungiselelo Zamakhukhi",
   },
   
   xh: {
@@ -973,6 +991,9 @@ export const translations: Record<Language, TranslationKeys> = {
     back: "Emva",
     next: "Okulandelayo",
     previous: "Okwangaphambili",
+    site_map: "Imephu Yesiza",
+    accessibility: "Ukufikelela",
+    cookie_settings: "Iisetingi Zeekhukhi",
   },
   
   sw: {
@@ -1098,6 +1119,9 @@ export const translations: Record<Language, TranslationKeys> = {
     back: "Nyuma",
     next: "Ifuatayo",
     previous: "Iliyotangulia",
+    site_map: "Ramani ya Tovuti",
+    accessibility: "Ufikiaji",
+    cookie_settings: "Mipangilio ya Vidakuzi",
   },
   
   ln: {
@@ -1223,6 +1247,9 @@ export const translations: Record<Language, TranslationKeys> = {
     back: "Kozonga",
     next: "Oyo Elandi",
     previous: "Oyo Eleki",
+    site_map: "Carte ya Site",
+    accessibility: "Kozwa Nzela",
+    cookie_settings: "Mibeko ya Cookies",
   },
 }
 

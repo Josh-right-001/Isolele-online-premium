@@ -24,7 +24,7 @@ export const languages: Language[] = [
 interface LanguageContextType {
   currentLanguage: Language
   setLanguage: (code: string) => void
-  t: (key: keyof TranslationKeys) => string
+  t: (key: keyof TranslationKeys | string) => string
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
@@ -50,10 +50,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  const t = (key: keyof TranslationKeys): string => {
+  const t = (key: keyof TranslationKeys | string): string => {
     const langCode = currentLanguage.code as LangCode
     const langTranslations = translations[langCode] || translations.en
-    return langTranslations[key] || translations.en[key] || key
+    const translationKey = key as keyof TranslationKeys
+    return langTranslations[translationKey] || translations.en[translationKey] || String(key)
   }
 
   return (
