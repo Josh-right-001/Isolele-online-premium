@@ -71,11 +71,11 @@ export function SiteFooter() {
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/images/isolele-logo.jpg"
+                src="/images/isolele-logo.png"
                 alt="ISOLELE"
                 width={40}
                 height={40}
-                className="rounded"
+                className="object-contain"
               />
               <span 
                 className="text-xl font-bold tracking-wider"
@@ -231,7 +231,7 @@ export function SiteFooter() {
             className="text-sm text-center md:text-left"
             style={{ color: currentTheme.colors.textSecondary }}
           >
-            &copy; 2025 Isolele. {t("copyright")}
+            &copy; 2026 Isolele. {t("copyright")}
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <Link

@@ -155,11 +155,11 @@ export default function AdminLoginPage() {
               className="inline-block"
             >
               <Image
-                src="/images/isolele-logo.jpg"
+                src="/images/isolele-logo.png"
                 alt="ISOLELE Admin"
                 width={80}
                 height={80}
-                className="mx-auto rounded-lg mb-4"
+                className="mx-auto mb-4 object-contain"
               />
               <h1 className="text-2xl font-bold text-white tracking-wider">
                 ISOLELE ADMIN
@@ -284,6 +284,19 @@ export default function AdminLoginPage() {
                     "SE CONNECTER"
                   )}
                 </motion.button>
+
+                {/* Signup link */}
+                <div className="text-center pt-4">
+                  <p className="text-sm text-gray-400">
+                    Vous n'avez pas de compte?{" "}
+                    <a 
+                      href="/admin/signup"
+                      className="text-[#C9A542] hover:underline font-medium transition-colors"
+                    >
+                      Creer un compte maintenant
+                    </a>
+                  </p>
+                </div>
               </motion.form>
             ) : (
               <motion.div
