@@ -1,0 +1,30 @@
+# ISOLELE COMICS - African Superheroes Universe
+# https://isolele.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://isolele.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin routes from indexing
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /@admin
+Disallow: /api/*
+
+# Allow all other content
+Allow: /about
+Allow: /founder
+Allow: /news
+Allow: /characters
+Allow: /shop
+Allow: /supporters
+
+# Keywords for SEO context (comments are ignored by crawlers but help with documentation)
+# Primary: African comics, Black superhero comics, Isolele, Zaiire Prince of Kongo
+# Secondary: African mythology, Kongo kingdom, African storytelling, Black Panther alternative
+# Multilingual: bande dessinee africaine, comics africanos, quadrinhos africanos

@@ -102,9 +102,9 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
               transition={{ duration: 0.8 }}
             >
               <motion.img
-                src="/images/img-20260114-wa0022.jpg"
+                src="/images/isolele-logo.png"
                 alt="ISOLELE Logo"
-                className="h-40 w-auto object-contain"
+                className="h-48 w-auto object-contain"
                 initial={{ clipPath: "inset(100% 0 0 0)" }}
                 animate={{ clipPath: "inset(0% 0 0 0)" }}
                 transition={{ duration: 2, ease: "easeOut" }}
@@ -142,7 +142,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
             >
-              {progress < 100 ? "LOADING THE LEGEND..." : "WELCOME, CHOSEN ONE"}
+              {progress < 100 ? "A VISIONARY AFRICAN UNIVERSE" : "WELCOME TO ISOLELE"}
             </motion.p>
           </motion.div>
         </motion.div>
