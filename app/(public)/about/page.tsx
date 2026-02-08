@@ -92,7 +92,7 @@ export default function AboutPage() {
   const { currentLanguage } = useLanguage()
   const lang = currentLanguage.code
   const t = (obj: { en: string; fr: string }) => obj[lang as 'en' | 'fr'] || obj.en
-  const language = currentLanguage.code; // Declare the language variable
+
 
   return (
     <>
@@ -195,6 +195,154 @@ export default function AboutPage() {
                 : '"Isolele" means "The Chosen Ones" - a name rooted in divine purpose. Every character in this universe is not just born powerful, they are summoned by bloodlines, ancient spirits and unfinished stories of their ancestors. This is not just fiction. It is a spiritual heritage reborn in modern form.'}
             </p>
           </motion.div>
+        </section>
+
+        {/* Founder: HRM King Kufulula */}
+        <section className="py-20 px-4 md:px-8" style={{ backgroundColor: 'var(--isolele-bg-secondary)' }}>
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="grid lg:grid-cols-2 gap-12 items-center"
+            >
+              {/* Photo */}
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden" style={{ border: '2px solid var(--isolele-accent)' }}>
+                  <Image
+                    src="/images/king-kufulula.jpg"
+                    alt="HRM King Kufulula - Royal Founder of Isolele"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <p className="text-sm font-medium tracking-widest" style={{ color: 'var(--isolele-accent)' }}>ROYAL FOUNDER</p>
+                    <h3 className="text-2xl font-bold text-white mt-1">HRM King Kufulula</h3>
+                    <p className="text-sm text-gray-300 mt-1">
+                      {lang === 'fr' ? 'Gardien du Patrimoine Congolais' : 'Custodian of Congolese Heritage'}
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute -top-4 -left-4 w-16 h-16 border-t-2 border-l-2" style={{ borderColor: 'var(--isolele-accent)' }} />
+                <div className="absolute -bottom-4 -right-4 w-16 h-16 border-b-2 border-r-2" style={{ borderColor: 'var(--isolele-accent)' }} />
+              </motion.div>
+
+              {/* Bio Text */}
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-6"
+              >
+                <p className="text-sm font-medium tracking-widest" style={{ color: 'var(--isolele-accent)' }}>
+                  {lang === 'fr' ? 'LE FONDATEUR' : 'THE FOUNDER'}
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold" style={{ color: 'var(--isolele-text)' }}>
+                  HRM King Kufulula
+                </h2>
+                <p className="text-lg leading-relaxed" style={{ color: 'var(--isolele-text-secondary)' }}>
+                  {lang === 'fr'
+                    ? "HRM King Kufulula est une figure royale congolaise, architecte culturel et fondateur d'Isolele, une institution africaine de storytelling et de culture creee pour restaurer l'identite, la memoire et la souverainete narrative des communautes africaines et afro-descendantes du monde entier."
+                    : "HRM King Kufulula is a Congolese royal figure, cultural architect, and founder of Isolele, a Congo-based African storytelling and cultural institution created to restore identity, memory, and narrative sovereignty to African and Afro-descendant communities worldwide."
+                  }
+                </p>
+                <p className="text-lg leading-relaxed" style={{ color: 'var(--isolele-text-secondary)' }}>
+                  {lang === 'fr'
+                    ? "Enracine dans une lignee royale de la region du Congo et guide par une responsabilite ancestrale, le travail du King Kufulula reflete une comprehension traditionnelle africaine de la royaute : non pas comme spectacle ou domination, mais comme gardiennage du peuple, de la terre, de la culture et des generations futures."
+                    : "Rooted in royal lineage from the Congo region and guided by ancestral responsibility, King Kufulula's work reflects a traditional African understanding of kingship: not as spectacle or domination, but as custodianship of people, land, culture, and future generations."
+                  }
+                </p>
+                <div className="p-6 rounded-xl" style={{ backgroundColor: 'var(--isolele-bg)', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
+                  <p className="italic text-lg" style={{ color: 'var(--isolele-accent)' }}>
+                    {lang === 'fr'
+                      ? '"Isolele n\'a pas ete cree pour divertir le monde. Il a ete cree pour restaurer la memoire."'
+                      : '"Isolele was not created to entertain the world. It was created to restore memory."'
+                    }
+                  </p>
+                  <p className="text-sm mt-3" style={{ color: 'var(--isolele-text-secondary)' }}>
+                    — HRM King Kufulula
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Congo Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-20 p-8 md:p-12 rounded-2xl text-center"
+              style={{ backgroundColor: 'var(--isolele-bg)', border: '1px solid rgba(212, 175, 55, 0.2)' }}
+            >
+              <Globe className="w-12 h-12 mx-auto mb-6" style={{ color: 'var(--isolele-accent)' }} />
+              <h3 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: 'var(--isolele-text)' }}>
+                {lang === 'fr' ? "Congo : La Fondation de la Vision" : "Congo: The Foundation of the Vision"}
+              </h3>
+              <p className="text-lg leading-relaxed max-w-4xl mx-auto mb-8" style={{ color: 'var(--isolele-text-secondary)' }}>
+                {lang === 'fr'
+                  ? "Le Congo n'est pas un decor dans ce travail. C'est la fondation. En tant que l'une des plus anciennes regions de civilisation humaine au monde, le Congo a longtemps ete un centre de systemes spirituels, d'equilibre ecologique et d'organisation sociale avancee. Ses forets regulentent le climat de la planete. Ses mineraux alimentent la technologie moderne. Sa culture et ses histoires ont influence le monde pendant des siecles."
+                  : "Congo is not a backdrop in this work. It is the foundation. As one of the world's oldest regions of human civilization, Congo has long been a center of spiritual systems, ecological balance, and advanced social organization. Its forests regulate the planet's climate. Its minerals power modern technology. Its culture and stories have influenced the world for centuries."
+                }
+              </p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { en: "A pillar of human civilization", fr: "Un pilier de la civilisation humaine" },
+                  { en: "Strategic center of environmental balance", fr: "Centre strategique d'equilibre environnemental" },
+                  { en: "Source of cultural intelligence", fr: "Source d'intelligence culturelle" },
+                  { en: "A land whose people deserve dignity", fr: "Une terre dont le peuple merite la dignite" },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="p-4 rounded-lg"
+                    style={{ backgroundColor: 'var(--isolele-bg-secondary)', border: '1px solid rgba(212, 175, 55, 0.15)' }}
+                  >
+                    <Star className="w-5 h-5 mb-2 mx-auto" style={{ color: 'var(--isolele-accent)' }} />
+                    <p className="text-sm" style={{ color: 'var(--isolele-text)' }}>{t(item)}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Focus Congo & We Love Congo */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-16 grid md:grid-cols-2 gap-8"
+            >
+              <div className="p-8 rounded-2xl" style={{ backgroundColor: 'var(--isolele-bg)', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
+                <Heart className="w-10 h-10 mb-4" style={{ color: '#e74c3c' }} />
+                <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--isolele-text)' }}>We Love Congo</h3>
+                <p style={{ color: 'var(--isolele-text-secondary)' }}>
+                  {lang === 'fr'
+                    ? "We Love Congo s'adresse a la dimension humaine. Il soutient les communautes touchees par la guerre, le deplacement et la negligence structurelle en privilegiant la dignite plutot que la charite, l'autonomisation plutot que la dependance."
+                    : "We Love Congo addresses the human dimension. It supports communities affected by war, displacement, and structural neglect by prioritizing dignity over charity, empowerment over dependency, local leadership over external control."
+                  }
+                </p>
+              </div>
+              <div className="p-8 rounded-2xl" style={{ backgroundColor: 'var(--isolele-bg)', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
+                <Globe className="w-10 h-10 mb-4" style={{ color: 'var(--isolele-accent)' }} />
+                <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--isolele-text)' }}>Focus Congo</h3>
+                <p style={{ color: 'var(--isolele-text-secondary)' }}>
+                  {lang === 'fr'
+                    ? "Focus Congo s'adresse a la dimension mondiale. Il existe pour changer la perception internationale en soulignant l'importance ecologique, l'heritage culturel et la pertinence strategique du Congo pour l'avenir de l'humanite."
+                    : "Focus Congo addresses the global dimension. It exists to shift international perception by highlighting Congo's ecological importance, cultural legacy, and strategic relevance to the future of humanity."
+                  }
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </section>
 
         {/* Four Pillars */}

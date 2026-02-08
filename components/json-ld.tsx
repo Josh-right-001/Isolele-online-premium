@@ -13,7 +13,9 @@ export function OrganizationJsonLd() {
     "founders": [
       {
         "@type": "Person",
-        "name": "We Love Congo"
+        "name": "HRM King Kufulula",
+        "jobTitle": "Royal Founder & Cultural Architect",
+        "description": "Congolese royal figure, cultural architect, and founder of Isolele"
       }
     ],
     "sameAs": [

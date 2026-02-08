@@ -6,8 +6,6 @@ export async function updateSession(request: NextRequest) {
     request,
   })
 
-  // With Fluid compute, don't put this client in a global environment
-  // variable. Always create a new one on each request.
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -31,82 +29,66 @@ export async function updateSession(request: NextRequest) {
     },
   )
 
-  // Do not run code between createServerClient and
-  // supabase.auth.getUser(). A simple mistake could make it very hard to debug
-  // issues with users being randomly logged out.
-
-  // IMPORTANT: If you remove getUser() and you use server-side rendering
-  // with the Supabase client, your users may be randomly logged out.
   const {
     data: { user },
   } = await supabase.auth.getUser()
 
   // Protect admin routes
   if (request.nextUrl.pathname.startsWith('/admin')) {
-    // Allow access to admin login page
-    if (request.nextUrl.pathname === '/admin/login') {
-      // If user is already logged in and is admin, redirect to dashboard
+    // Allow access to login and signup pages always
+    if (
+      request.nextUrl.pathname === '/admin/login' ||
+      request.nextUrl.pathname === '/admin/signup'
+    ) {
+      // If user is already logged in, redirect to dashboard
       if (user) {
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('role')
-          .eq('id', user.id)
-          .single()
-        
-        if (profile?.role === 'admin' || profile?.role === 'super_admin') {
-          const url = request.nextUrl.clone()
-          url.pathname = '/admin'
-          return NextResponse.redirect(url)
-        }
+        const url = request.nextUrl.clone()
+        url.pathname = '/admin'
+        return NextResponse.redirect(url)
       }
       return supabaseResponse
     }
 
-    // For all other admin routes, require authentication and admin role
+    // For all other admin routes, just require authentication (logged in)
     if (!user) {
       const url = request.nextUrl.clone()
       url.pathname = '/admin/login'
       return NextResponse.redirect(url)
     }
 
-    // Check if user has admin role
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('role')
-      .eq('id', user.id)
-      .single()
+    // User is authenticated - ensure their profile exists
+    // This is non-blocking: if profile query fails, still allow access
+    try {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('id')
+        .eq('id', user.id)
+        .single()
 
-    if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
-      const url = request.nextUrl.clone()
-      url.pathname = '/admin/login'
-      url.searchParams.set('error', 'unauthorized')
-      return NextResponse.redirect(url)
+      if (!profile) {
+        // Auto-create profile for authenticated user
+        await supabase.from('profiles').upsert({
+          id: user.id,
+          email: user.email,
+          full_name: user.user_metadata?.full_name || 'Admin',
+          role: 'admin',
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        })
+      }
+    } catch {
+      // Profile check failed - still allow access since user is authenticated
     }
   }
 
   if (
-    // if the user is not logged in and the app path, in this case, /protected, is accessed, redirect to the login page
     request.nextUrl.pathname.startsWith('/protected') &&
     !user
   ) {
-    // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone()
     url.pathname = '/auth/login'
     return NextResponse.redirect(url)
   }
-
-  // IMPORTANT: You *must* return the supabaseResponse object as it is.
-  // If you're creating a new response object with NextResponse.next() make sure to:
-  // 1. Pass the request in it, like so:
-  //    const myNewResponse = NextResponse.next({ request })
-  // 2. Copy over the cookies, like so:
-  //    myNewResponse.cookies.setAll(supabaseResponse.cookies.getAll())
-  // 3. Change the myNewResponse object to fit your needs, but avoid changing
-  //    the cookies!
-  // 4. Finally:
-  //    return myNewResponse
-  // If this is not done, you may be causing the browser and server to go out
-  // of sync and terminate the user's session prematurely!
 
   return supabaseResponse
 }
