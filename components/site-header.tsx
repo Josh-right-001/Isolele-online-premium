@@ -151,7 +151,7 @@ export function SiteHeader() {
                   </Link>
 
                   {/* Dropdown for Characters */}
-                  {item.key === "characters" && activeDropdown === "characters" && (
+                  {item.key === "nav_characters" && activeDropdown === "nav_characters" && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -187,7 +187,7 @@ export function SiteHeader() {
                   )}
 
                   {/* Dropdown for Supporters */}
-                  {item.key === "supporters" && activeDropdown === "supporters" && (
+                  {item.key === "nav_supporters" && activeDropdown === "nav_supporters" && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -439,7 +439,7 @@ export function SiteHeader() {
                 {/* Mobile Language & Theme */}
                 <div className="mt-6 space-y-4">
                   <div className="flex flex-wrap gap-2">
-                    {languages.slice(0, 4).map((lang) => (
+                    {languages.map((lang) => (
                       <button
                         key={lang.code}
                         onClick={() => setLanguage(lang.code)}

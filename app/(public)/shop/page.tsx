@@ -82,10 +82,12 @@ const categories = [
 ]
 
 export default function ShopPage() {
-  const { language } = useLanguage()
+  const { currentLanguage } = useLanguage()
+  const lang = currentLanguage.code
+  const language = currentLanguage.code // Declare the language variable
   const t = (obj: { en: string; fr: string } | null) => {
     if (!obj) return null
-    return obj[language as 'en' | 'fr'] || obj.en
+    return obj[lang as 'en' | 'fr'] || obj.en
   }
 
   return (
@@ -113,10 +115,10 @@ export default function ShopPage() {
             className="text-center mb-12"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: 'var(--isolele-accent)' }}>
-              {language === 'fr' ? "BOUTIQUE" : "SHOP"}
+              {lang === 'fr' ? "BOUTIQUE" : "SHOP"}
             </h1>
             <p className="text-xl max-w-2xl mx-auto" style={{ color: 'var(--isolele-text-secondary)' }}>
-              {language === 'fr'
+              {lang === 'fr'
                 ? "Decouvrez notre collection de bandes dessinees, vetements et articles exclusifs de l'univers Isolele."
                 : "Discover our collection of comics, apparel and exclusive items from the Isolele universe."}
             </p>
@@ -258,8 +260,8 @@ export default function ShopPage() {
                   >
                     <ShoppingCart className="w-4 h-4" />
                     {product.inStock 
-                      ? (language === 'fr' ? "AJOUTER AU PANIER" : "ADD TO CART")
-                      : (language === 'fr' ? "BIENTOT DISPONIBLE" : "COMING SOON")}
+                      ? (lang === 'fr' ? "AJOUTER AU PANIER" : "ADD TO CART")
+                      : (lang === 'fr' ? "BIENTOT DISPONIBLE" : "COMING SOON")}
                   </Button>
                 </div>
               </motion.div>
@@ -278,17 +280,17 @@ export default function ShopPage() {
             }}
           >
             <h2 className="text-3xl font-bold mb-4" style={{ color: 'var(--isolele-accent)' }}>
-              {language === 'fr' ? "RESTEZ INFORME" : "STAY INFORMED"}
+              {lang === 'fr' ? "RESTEZ INFORME" : "STAY INFORMED"}
             </h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto" style={{ color: 'var(--isolele-text-secondary)' }}>
-              {language === 'fr'
+              {lang === 'fr'
                 ? "Inscrivez-vous a notre newsletter pour recevoir des mises a jour exclusives sur les nouvelles sorties et les offres speciales."
                 : "Subscribe to our newsletter for exclusive updates on new releases and special offers."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <input
                 type="email"
-                placeholder={language === 'fr' ? "Votre email" : "Your email"}
+                placeholder={lang === 'fr' ? "Votre email" : "Your email"}
                 className="flex-1 px-6 py-3 rounded-lg"
                 style={{ 
                   backgroundColor: 'var(--isolele-bg)',
@@ -300,7 +302,7 @@ export default function ShopPage() {
                 style={{ backgroundColor: 'var(--isolele-accent)', color: '#000' }}
                 className="px-8"
               >
-                {language === 'fr' ? "S'INSCRIRE" : "SUBSCRIBE"}
+                {lang === 'fr' ? "S'INSCRIRE" : "SUBSCRIBE"}
               </Button>
             </div>
           </motion.div>

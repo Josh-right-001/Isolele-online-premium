@@ -89,8 +89,10 @@ const regions = [
 ]
 
 export default function AboutPage() {
-  const { language } = useLanguage()
-  const t = (obj: { en: string; fr: string }) => obj[language as 'en' | 'fr'] || obj.en
+  const { currentLanguage } = useLanguage()
+  const lang = currentLanguage.code
+  const t = (obj: { en: string; fr: string }) => obj[lang as 'en' | 'fr'] || obj.en
+  const language = currentLanguage.code; // Declare the language variable
 
   return (
     <>
@@ -119,7 +121,7 @@ export default function AboutPage() {
               className="text-xl md:text-2xl italic mb-6"
               style={{ color: 'var(--isolele-text-secondary)' }}
             >
-              {language === 'fr' 
+              {lang === 'fr' 
                 ? '"Chaque histoire de super-heros a besoin de racines dans la verite..."'
                 : '"Every superhero story needs roots in truth..."'}
             </motion.p>
@@ -130,7 +132,7 @@ export default function AboutPage() {
               className="text-4xl md:text-6xl font-bold"
               style={{ color: 'var(--isolele-accent)' }}
             >
-              {language === 'fr' ? "Qu'est-ce qu'ISOLELE ?" : "What is ISOLELE?"}
+              {lang === 'fr' ? "Qu'est-ce qu'ISOLELE ?" : "What is ISOLELE?"}
             </motion.h1>
           </div>
         </section>
@@ -144,10 +146,10 @@ export default function AboutPage() {
             className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8" style={{ color: 'var(--isolele-text)' }}>
-              {language === 'fr' ? "L'UNIVERS VISIONNAIRE" : "THE VISIONARY UNIVERSE"}
+              {lang === 'fr' ? "L'UNIVERS VISIONNAIRE" : "THE VISIONARY UNIVERSE"}
             </h2>
             <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mb-12" style={{ color: 'var(--isolele-text-secondary)' }}>
-              {language === 'fr' 
+              {lang === 'fr' 
                 ? "Isolele est un univers visionnaire ne pour restaurer l'ame du storytelling africain - un empire mythologique ou les Superheros sont choisis par le destin, les royaumes jamais oublies, et le pouvoir ancestral est vivant dans chaque page, chaque prophetie, chaque bataille."
                 : "Isolele is a visionary universe born to restore the soul of African storytelling - a mythological empire where Superheroes are chosen by destiny, kingdoms never forgotten, and ancestral power is alive in every page, every prophecy, every battle."}
             </p>
@@ -160,7 +162,7 @@ export default function AboutPage() {
                 className="text-2xl md:text-3xl font-bold"
                 style={{ color: 'var(--isolele-accent)' }}
               >
-                {language === 'fr' ? "Le Retour des Elus." : "The Return of the Chosen."}
+                {lang === 'fr' ? "Le Retour des Elus." : "The Return of the Chosen."}
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -170,7 +172,7 @@ export default function AboutPage() {
                 className="text-2xl md:text-3xl font-bold"
                 style={{ color: 'var(--isolele-accent-secondary)' }}
               >
-                {language === 'fr' ? "L'Emergence d'une Afrique Mythique." : "The Emergence of a Mythical Africa."}
+                {lang === 'fr' ? "L'Emergence d'une Afrique Mythique." : "The Emergence of a Mythical Africa."}
               </motion.div>
             </div>
           </motion.div>
@@ -185,10 +187,10 @@ export default function AboutPage() {
           >
             <Sparkles className="w-10 h-10 mb-4" style={{ color: 'var(--isolele-accent)' }} />
             <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--isolele-text)' }}>
-              {language === 'fr' ? "Le Nom et Son Pouvoir" : "The Name and Its Power"}
+              {lang === 'fr' ? "Le Nom et Son Pouvoir" : "The Name and Its Power"}
             </h3>
             <p className="text-lg leading-relaxed" style={{ color: 'var(--isolele-text-secondary)' }}>
-              {language === 'fr'
+              {lang === 'fr'
                 ? '"Isolele" signifie "Les Elus" - un nom enracine dans un but divin. Chaque personnage de cet univers n\'est pas seulement ne puissant, il est convoque par les lignees sanguines, les esprits anciens et les histoires inachevees de leurs ancetres. Ce n\'est pas seulement de la fiction. C\'est un heritage spirituel renaissant sous une forme moderne.'
                 : '"Isolele" means "The Chosen Ones" - a name rooted in divine purpose. Every character in this universe is not just born powerful, they are summoned by bloodlines, ancient spirits and unfinished stories of their ancestors. This is not just fiction. It is a spiritual heritage reborn in modern form.'}
             </p>
@@ -199,7 +201,7 @@ export default function AboutPage() {
         <section className="py-20 px-4 md:px-8" style={{ backgroundColor: 'var(--isolele-bg-secondary)' }}>
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-16" style={{ color: 'var(--isolele-text)' }}>
-              {language === 'fr' ? "Les Quatre Piliers d'Isolele" : "The Four Pillars of Isolele"}
+              {lang === 'fr' ? "Les Quatre Piliers d'Isolele" : "The Four Pillars of Isolele"}
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">
@@ -229,7 +231,7 @@ export default function AboutPage() {
         {/* Fundamental Principles */}
         <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16" style={{ color: 'var(--isolele-text)' }}>
-            {language === 'fr' ? "Principes Fondamentaux" : "Fundamental Principles"}
+            {lang === 'fr' ? "Principes Fondamentaux" : "Fundamental Principles"}
           </h2>
           
           <div className="flex flex-wrap justify-center gap-6">
@@ -259,10 +261,10 @@ export default function AboutPage() {
         <section className="py-20 px-4 md:px-8" style={{ backgroundColor: 'var(--isolele-bg-secondary)' }}>
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-8" style={{ color: 'var(--isolele-text)' }}>
-              {language === 'fr' ? "L'UNIVERS D'ISOLELE" : "THE ISOLELE UNIVERSE"}
+              {lang === 'fr' ? "L'UNIVERS D'ISOLELE" : "THE ISOLELE UNIVERSE"}
             </h2>
             <p className="text-center text-lg mb-16" style={{ color: 'var(--isolele-text-secondary)' }}>
-              {language === 'fr' 
+              {lang === 'fr' 
                 ? "Isolele s'etend sur un mythe multi-royaumes avec des royaumes, des tribus et des lignees sanguines interconnectes a travers :"
                 : "Isolele spans a multi-kingdom myth with interconnected kingdoms, tribes and bloodlines through:"}
             </p>
@@ -291,7 +293,7 @@ export default function AboutPage() {
             </div>
             
             <p className="text-center mt-8 italic" style={{ color: 'var(--isolele-text-secondary)' }}>
-              {language === 'fr' 
+              {lang === 'fr' 
                 ? "Et plus encore... Chaque region possede son propre pantheon, sa prophetie et son protecteur."
                 : "And more... Each region has its own pantheon, prophecy and protector."}
             </p>
@@ -302,10 +304,10 @@ export default function AboutPage() {
         <section className="py-20 px-4 md:px-8 max-w-4xl mx-auto text-center">
           <Zap className="w-16 h-16 mx-auto mb-8" style={{ color: 'var(--isolele-accent)' }} />
           <h2 className="text-3xl md:text-4xl font-bold mb-8" style={{ color: 'var(--isolele-text)' }}>
-            {language === 'fr' ? "LA VISION" : "THE VISION"}
+            {lang === 'fr' ? "LA VISION" : "THE VISION"}
           </h2>
           <p className="text-xl leading-relaxed" style={{ color: 'var(--isolele-text-secondary)' }}>
-            {language === 'fr'
+            {lang === 'fr'
               ? "Restaurer l'Afrique comme centre du mythe, de la magie et de la puissance. Creer une tapisserie vivante de legendes qui eveillent la fierte, le but et la prophetie dans chaque ame qu'elles touchent a travers les frontieres, les generations et les plateformes."
               : "Restore Africa as the center of myth, magic and power. Create a living tapestry of legends that awaken pride, purpose and prophecy in every soul they touch across borders, generations and platforms."}
           </p>
@@ -318,7 +320,7 @@ export default function AboutPage() {
             style={{ backgroundColor: 'var(--isolele-bg-secondary)', border: '2px solid var(--isolele-accent)' }}
           >
             <p className="text-2xl italic" style={{ color: 'var(--isolele-accent)' }}>
-              {language === 'fr'
+              {lang === 'fr'
                 ? '"Nous ne creons pas seulement des personnages. Nous creons une lignee. Nous creons un heritage."'
                 : '"We are not just creating characters. We are creating a lineage. We are creating a legacy."'}
             </p>

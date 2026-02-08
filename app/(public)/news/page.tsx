@@ -106,8 +106,10 @@ const articles = [
 ]
 
 export default function NewsPage() {
-  const { language } = useLanguage()
-  const t = (obj: { en: string; fr: string }) => obj[language as 'en' | 'fr'] || obj.en
+  const { currentLanguage } = useLanguage()
+  const lang = currentLanguage.code
+  const t = (obj: { en: string; fr: string }) => obj[lang as 'en' | 'fr'] || obj.en
+  const language = currentLanguage.code; // Declare the language variable
 
   const featuredArticles = articles.filter(a => a.featured)
   const regularArticles = articles.filter(a => !a.featured)
@@ -128,10 +130,10 @@ export default function NewsPage() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: 'var(--isolele-accent)' }}>
-              {language === 'fr' ? "ACTUALITES BD" : "COMICS NEWS"}
+              {lang === 'fr' ? "ACTUALITES BD" : "COMICS NEWS"}
             </h1>
             <p className="text-xl max-w-2xl mx-auto" style={{ color: 'var(--isolele-text-secondary)' }}>
-              {language === 'fr'
+              {lang === 'fr'
                 ? "Decouvrez les dernieres nouvelles, histoires et perspectives de l'univers Isolele."
                 : "Discover the latest news, stories and insights from the Isolele universe."}
             </p>
@@ -140,7 +142,7 @@ export default function NewsPage() {
           {/* Featured Articles */}
           <section className="mb-20">
             <h2 className="text-2xl font-bold mb-8" style={{ color: 'var(--isolele-text)' }}>
-              {language === 'fr' ? "A LA UNE" : "FEATURED"}
+              {lang === 'fr' ? "A LA UNE" : "FEATURED"}
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               {featuredArticles.map((article, index) => (
@@ -207,7 +209,7 @@ export default function NewsPage() {
                         className="flex items-center gap-2 font-bold transition-colors"
                         style={{ color: 'var(--isolele-accent)' }}
                       >
-                        {language === 'fr' ? "LIRE L'ARTICLE" : "READ ARTICLE"}
+                        {lang === 'fr' ? "LIRE L'ARTICLE" : "READ ARTICLE"}
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </div>
@@ -220,7 +222,7 @@ export default function NewsPage() {
           {/* All Articles */}
           <section>
             <h2 className="text-2xl font-bold mb-8" style={{ color: 'var(--isolele-text)' }}>
-              {language === 'fr' ? "TOUS LES ARTICLES" : "ALL ARTICLES"}
+              {lang === 'fr' ? "TOUS LES ARTICLES" : "ALL ARTICLES"}
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {regularArticles.map((article, index) => (
@@ -277,7 +279,7 @@ export default function NewsPage() {
                       className="flex items-center gap-1 text-sm font-bold transition-colors"
                       style={{ color: 'var(--isolele-accent)' }}
                     >
-                      {language === 'fr' ? "LIRE" : "READ"}
+                      {lang === 'fr' ? "LIRE" : "READ"}
                       <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
@@ -301,7 +303,7 @@ export default function NewsPage() {
                 color: 'var(--isolele-accent)'
               }}
             >
-              {language === 'fr' ? "CHARGER PLUS D'ARTICLES" : "LOAD MORE ARTICLES"}
+              {lang === 'fr' ? "CHARGER PLUS D'ARTICLES" : "LOAD MORE ARTICLES"}
             </button>
           </motion.div>
         </div>

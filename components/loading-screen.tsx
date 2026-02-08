@@ -142,7 +142,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
             >
-              {progress < 100 ? "LOADING THE LEGEND..." : "WELCOME, CHOSEN ONE"}
+              {progress < 100 ? "A VISIONARY AFRICAN UNIVERSE" : "WELCOME TO ISOLELE"}
             </motion.p>
           </motion.div>
         </motion.div>
