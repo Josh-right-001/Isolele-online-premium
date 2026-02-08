@@ -7,7 +7,7 @@ import NextImage from "next/image"
 import { Suspense } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { createClient } from "@/lib/supabase/client"
-import { LayoutDashboard, FileText, Users, ShoppingBag, Settings, LogOut, Menu, X, Bell, Search, ChevronDown, BookOpen, BarChart3, Shield, ImagePlusIcon as ImageLucide } from "lucide-react"
+import { LayoutDashboard, FileText, Users, ShoppingBag, Settings, LogOut, Menu, X, Bell, Search, ChevronDown, BookOpen, BarChart3, Shield, ImageIcon } from "lucide-react"
 import { AIAssistant } from "@/components/admin/ai-assistant"
 import { SaveProvider } from "@/components/admin/save-progress"
 
@@ -16,7 +16,7 @@ const navItems = [
   { icon: FileText, label: "Actualites", href: "/admin/news" },
   { icon: Users, label: "Personnages", href: "/admin/characters" },
   { icon: ShoppingBag, label: "Boutique", href: "/admin/shop" },
-  { icon: ImageLucide, label: "Medias", href: "/admin/media" },
+  { icon: ImageIcon, label: "Medias", href: "/admin/media" },
   { icon: BookOpen, label: "Pages", href: "/admin/pages" },
   { icon: BarChart3, label: "Analytics", href: "/admin/analytics" },
   { icon: Shield, label: "Securite", href: "/admin/security" },

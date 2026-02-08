@@ -49,8 +49,8 @@ export const metadata: Metadata = {
     // Russian keywords
     'Африканские комиксы', 'Африканские супергерои', 'Афрофутуризм комиксы'
   ],
-  authors: [{ name: 'We Love Congo' }, { name: 'Isolele Comics' }],
-  creator: 'Isolele Comics - We Love Congo',
+  authors: [{ name: 'HRM King Kufulula' }, { name: 'Isolele Comics' }, { name: 'We Love Congo' }],
+  creator: 'HRM King Kufulula - Isolele Comics',
   publisher: 'Isolele Comics',
   category: 'Comics & Graphic Novels',
   classification: 'African Superhero Comics',

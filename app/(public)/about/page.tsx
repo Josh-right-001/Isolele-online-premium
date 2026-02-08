@@ -223,10 +223,12 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
-                    <p className="text-sm font-medium tracking-widest" style={{ color: 'var(--isolele-accent)' }}>ROYAL FOUNDER</p>
+                    <p className="text-sm font-medium tracking-widest" style={{ color: 'var(--isolele-accent)' }}>
+                      {lang === 'fr' ? 'FONDATEUR ROYAL' : 'ROYAL FOUNDER'}
+                    </p>
                     <h3 className="text-2xl font-bold text-white mt-1">HRM King Kufulula</h3>
                     <p className="text-sm text-gray-300 mt-1">
-                      {lang === 'fr' ? 'Gardien du Patrimoine Congolais' : 'Custodian of Congolese Heritage'}
+                      {lang === 'fr' ? 'Architecte Culturel Africain' : 'African Cultural Architect'}
                     </p>
                   </div>
                 </div>
@@ -242,14 +244,20 @@ export default function AboutPage() {
                 className="space-y-6"
               >
                 <p className="text-sm font-medium tracking-widest" style={{ color: 'var(--isolele-accent)' }}>
-                  {lang === 'fr' ? 'LE FONDATEUR' : 'THE FOUNDER'}
+                  {lang === 'fr' ? 'LE FONDATEUR ROYAL' : 'ROYAL FOUNDER'}
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold" style={{ color: 'var(--isolele-text)' }}>
                   HRM King Kufulula
                 </h2>
+                <p className="text-base font-medium" style={{ color: 'var(--isolele-accent)' }}>
+                  {lang === 'fr'
+                    ? "Fondateur Royal d'Isolele | Gardien du Patrimoine Congolais | Architecte Culturel Africain"
+                    : "Royal Founder of Isolele | Custodian of Congolese Heritage | African Cultural Architect"
+                  }
+                </p>
                 <p className="text-lg leading-relaxed" style={{ color: 'var(--isolele-text-secondary)' }}>
                   {lang === 'fr'
-                    ? "HRM King Kufulula est une figure royale congolaise, architecte culturel et fondateur d'Isolele, une institution africaine de storytelling et de culture creee pour restaurer l'identite, la memoire et la souverainete narrative des communautes africaines et afro-descendantes du monde entier."
+                    ? "HRM King Kufulula est une figure royale congolaise, architecte culturel et fondateur d'Isolele, une institution africaine de narration et de culture basee au Congo, creee pour restaurer l'identite, la memoire et la souverainete narrative des communautes africaines et afro-descendantes du monde entier."
                     : "HRM King Kufulula is a Congolese royal figure, cultural architect, and founder of Isolele, a Congo-based African storytelling and cultural institution created to restore identity, memory, and narrative sovereignty to African and Afro-descendant communities worldwide."
                   }
                 </p>
@@ -257,6 +265,12 @@ export default function AboutPage() {
                   {lang === 'fr'
                     ? "Enracine dans une lignee royale de la region du Congo et guide par une responsabilite ancestrale, le travail du King Kufulula reflete une comprehension traditionnelle africaine de la royaute : non pas comme spectacle ou domination, mais comme gardiennage du peuple, de la terre, de la culture et des generations futures."
                     : "Rooted in royal lineage from the Congo region and guided by ancestral responsibility, King Kufulula's work reflects a traditional African understanding of kingship: not as spectacle or domination, but as custodianship of people, land, culture, and future generations."
+                  }
+                </p>
+                <p className="text-lg leading-relaxed" style={{ color: 'var(--isolele-text-secondary)' }}>
+                  {lang === 'fr'
+                    ? "Son leadership se definit par une vision a long terme, la construction d'institutions et l'impact intergenerationnel plutot que par la visibilite personnelle."
+                    : "His leadership is defined by long-term vision, institution-building, and intergenerational impact rather than personal visibility."
                   }
                 </p>
                 <div className="p-6 rounded-xl" style={{ backgroundColor: 'var(--isolele-bg)', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
