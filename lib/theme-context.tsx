@@ -20,19 +20,6 @@ export interface Theme {
 
 export const themes: Theme[] = [
   {
-    id: "lumiere-royale",
-    name: "Royal Light",
-    nameFr: "Lumiere Royale",
-    colors: {
-      background: "#FFFFFF",
-      backgroundSecondary: "#F8F6F0",
-      accentPrimary: "#B8860B",
-      accentSecondary: "#8B6914",
-      textPrimary: "#1A1A1A",
-      textSecondary: "#4A4A4A",
-    },
-  },
-  {
     id: "royaume-ancestral",
     name: "Ancestral Kingdom",
     nameFr: "Royaume Ancestral",
