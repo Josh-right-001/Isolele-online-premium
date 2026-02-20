@@ -102,9 +102,9 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
               transition={{ duration: 0.8 }}
             >
               <motion.img
-                src="/images/isolele-logo.png"
+                src="/images/img-20260114-wa0022.jpg"
                 alt="ISOLELE Logo"
-                className="h-48 w-auto object-contain"
+                className="h-40 w-auto object-contain"
                 initial={{ clipPath: "inset(100% 0 0 0)" }}
                 animate={{ clipPath: "inset(0% 0 0 0)" }}
                 transition={{ duration: 2, ease: "easeOut" }}

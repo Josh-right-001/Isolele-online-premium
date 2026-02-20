@@ -15,7 +15,7 @@ export function HeroSection() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/images/zaiire-hero-cover.jpg')`,
+          backgroundImage: `url('/images/hero-zaire.jpg')`,
         }}
       />
       <div 
