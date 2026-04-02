@@ -15,6 +15,7 @@ import {
 } from "lucide-react"
 import { useTheme, themes } from "@/lib/theme-context"
 import { useLanguage, languages } from "@/lib/language-context"
+import { useCart } from "@/lib/cart-context"
 import { cn } from "@/lib/utils"
 
 const characterLinks = [
@@ -26,29 +27,30 @@ const characterLinks = [
 ]
 
 const supporterLinks = [
-  { key: "becomeSupporter", href: "/supporters/become" },
-  { key: "partners", href: "/supporters/partners" },
-  { key: "restaurantPartner", href: "/supporters/restaurant" },
+  { key: "nav_become_supporter", href: "/supporters/become" },
+  { key: "nav_partners", href: "/supporters/partners" },
+  { key: "nav_restaurant", href: "/supporters/restaurant" },
 ]
 
 export function SiteHeader() {
   const { currentTheme, setTheme, isTransitioning } = useTheme()
   const { currentLanguage, setLanguage, t } = useLanguage()
+  const { totalItems, setIsCartOpen } = useCart()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [languageOpen, setLanguageOpen] = useState(false)
   const [themeOpen, setThemeOpen] = useState(false)
-  const [cartCount] = useState(0)
+  const cartCount = totalItems; // Declare cartCount variable
 
   const navItems = [
-    { key: "home", href: "/" },
-    { key: "about", href: "/about" },
-    { key: "founder", href: "/founder" },
-    { key: "news", href: "/news" },
-    { key: "characters", href: "/characters", hasDropdown: true, dropdownItems: characterLinks },
-    { key: "shop", href: "/shop" },
-    { key: "supporters", href: "/supporters", hasDropdown: true, dropdownKey: "supporters" },
+    { key: "nav_home", href: "/" },
+    { key: "nav_about", href: "/about" },
+    { key: "nav_founder", href: "/founder" },
+    { key: "nav_news", href: "/news" },
+    { key: "nav_characters", href: "/characters", hasDropdown: true, dropdownItems: characterLinks },
+    { key: "nav_shop", href: "/shop" },
+    { key: "nav_supporters", href: "/supporters", hasDropdown: true, dropdownKey: "supporters" },
   ]
 
   return (
@@ -85,11 +87,11 @@ export function SiteHeader() {
                 className="relative"
               >
                 <Image
-                  src="/images/isolele-logo.jpg"
+                  src="/images/isolele-logo.png"
                   alt="ISOLELE"
                   width={50}
                   height={50}
-                  className="rounded"
+                  className="object-contain"
                 />
                 <motion.div
                   className="absolute inset-0 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -109,7 +111,7 @@ export function SiteHeader() {
                   className="text-xs tracking-widest font-mono"
                   style={{ color: currentTheme.colors.textSecondary }}
                 >
-                  {t("theChosenOnes")}
+                  {t("universe_subtitle")}
                 </p>
               </div>
             </Link>
@@ -169,7 +171,7 @@ export function SiteHeader() {
                           borderColor: `${currentTheme.colors.accentPrimary}20`
                         }}
                       >
-                        {t("allCharacters")}
+                        {t("nav_all_characters")}
                       </Link>
                       {characterLinks.map((char) => (
                         <Link
@@ -236,7 +238,7 @@ export function SiteHeader() {
                     >
                       <input
                         type="text"
-                        placeholder={t("searchPlaceholder")}
+                        placeholder={t("search_placeholder")}
                         className="w-full px-4 py-2 rounded-lg text-sm outline-none"
                         style={{ 
                           backgroundColor: currentTheme.colors.backgroundSecondary,
@@ -370,22 +372,25 @@ export function SiteHeader() {
 
               {/* Cart */}
               <motion.button
+                onClick={() => setIsCartOpen(true)}
                 className="relative p-2 rounded-full transition-colors"
                 style={{ color: currentTheme.colors.textSecondary }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <ShoppingBag className="h-5 w-5" />
-                {cartCount > 0 && (
-                  <span 
+                {totalItems > 0 && (
+                  <motion.span 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
                     className="absolute -top-1 -right-1 h-5 w-5 rounded-full text-xs flex items-center justify-center font-bold"
                     style={{ 
                       backgroundColor: currentTheme.colors.accentSecondary,
-                      color: currentTheme.colors.textPrimary
+                      color: "#FFFFFF"
                     }}
                   >
-                    {cartCount}
-                  </span>
+                    {totalItems}
+                  </motion.span>
                 )}
               </motion.button>
 

@@ -27,22 +27,22 @@ export function SiteFooter() {
   }
 
   const quickLinks = [
-    { key: "home", href: "/" },
-    { key: "about", href: "/about" },
-    { key: "founder", href: "/founder" },
-    { key: "news", href: "/news" },
-    { key: "characters", href: "/characters" },
-    { key: "shop", href: "/shop" },
-    { key: "supporters", href: "/supporters" },
+    { key: "nav_home", href: "/" },
+    { key: "nav_about", href: "/about" },
+    { key: "nav_founder", href: "/founder" },
+    { key: "nav_news", href: "/news" },
+    { key: "nav_characters", href: "/characters" },
+    { key: "nav_shop", href: "/shop" },
+    { key: "nav_supporters", href: "/supporters" },
   ]
 
   const resourceLinks = [
-    { key: "press", href: "/press" },
-    { key: "careers", href: "/careers" },
-    { key: "contactUs", href: "/contact" },
-    { key: "faq", href: "/faq" },
-    { key: "terms", href: "/terms" },
-    { key: "privacy", href: "/privacy" },
+    { key: "footer_press", href: "/press" },
+    { key: "footer_careers", href: "/careers" },
+    { key: "footer_contact", href: "/contact" },
+    { key: "footer_faq", href: "/faq" },
+    { key: "footer_terms", href: "/terms" },
+    { key: "footer_privacy", href: "/privacy" },
   ]
 
   const socialLinks = [
@@ -71,11 +71,11 @@ export function SiteFooter() {
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/images/isolele-logo.jpg"
+                src="/images/isolele-logo.png"
                 alt="ISOLELE"
                 width={40}
                 height={40}
-                className="rounded"
+                className="object-contain"
               />
               <span 
                 className="text-xl font-bold tracking-wider"
@@ -121,7 +121,7 @@ export function SiteFooter() {
               className="text-lg font-bold tracking-wider mb-6"
               style={{ color: currentTheme.colors.accentPrimary }}
             >
-              {t("explore")}
+              {t("footer_explore")}
             </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -150,7 +150,7 @@ export function SiteFooter() {
               className="text-lg font-bold tracking-wider mb-6"
               style={{ color: currentTheme.colors.accentPrimary }}
             >
-              {t("resources")}
+              {t("footer_resources")}
             </h3>
             <ul className="space-y-3">
               {resourceLinks.map((link) => (
@@ -179,7 +179,7 @@ export function SiteFooter() {
               className="text-lg font-bold tracking-wider mb-6"
               style={{ color: currentTheme.colors.accentPrimary }}
             >
-              {t("stayInformed")}
+              {t("footer_newsletter_title")}
             </h3>
             <p 
               className="text-sm mb-4"
@@ -192,7 +192,7 @@ export function SiteFooter() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder={t("yourEmail")}
+                placeholder={t("footer_email_placeholder")}
                 className="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
                 style={{ 
                   backgroundColor: currentTheme.colors.background,
@@ -216,7 +216,7 @@ export function SiteFooter() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {subscribed ? "MERCI!" : t("subscribe")}
+                {subscribed ? "MERCI!" : t("footer_subscribe")}
               </motion.button>
             </form>
           </div>
@@ -231,7 +231,7 @@ export function SiteFooter() {
             className="text-sm text-center md:text-left"
             style={{ color: currentTheme.colors.textSecondary }}
           >
-            &copy; 2025 Isolele. {t("copyright")}
+            &copy; 2026 Isolele. {t("footer_copyright")}
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <Link
@@ -245,7 +245,7 @@ export function SiteFooter() {
                 e.currentTarget.style.color = currentTheme.colors.textSecondary
               }}
             >
-              {t("siteMap")}
+              {t("site_map")}
             </Link>
             <span style={{ color: currentTheme.colors.textSecondary }}>|</span>
             <Link
@@ -272,7 +272,7 @@ export function SiteFooter() {
                 e.currentTarget.style.color = currentTheme.colors.textSecondary
               }}
             >
-              {t("cookieSettings")}
+              {t("cookie_settings")}
             </button>
           </div>
         </div>
